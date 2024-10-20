@@ -7,11 +7,33 @@
 
 import SwiftUI
 import BusyIndicator
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
 
 private let appAssembler: AppAssembler = AppAssembler()
 
+class AppDelegate: NSObject, UIApplicationDelegate {
+  func application(_ application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    FirebaseApp.configure()
+
+    let db = Firestore.firestore()
+    
+    
+    
+    
+    return true
+  }
+}
+
+
 @main
 struct MVVM_Demo_SwiftUIApp: App {
+  
+  // register app delegate for Firebase setup
+  @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+  
   var body: some Scene {
     WindowGroup {
       AppRootCoordinatorView(
