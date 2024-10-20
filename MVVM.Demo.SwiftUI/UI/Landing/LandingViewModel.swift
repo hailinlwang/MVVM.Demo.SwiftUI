@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import SwiftUI
+import FirebaseFirestore
 
 protocol LandingViewModelDelegate: AnyObject {
   func landingViewModelDidTapPulse(_ source: LandingViewModel)
@@ -23,6 +24,34 @@ class LandingViewModel: ViewModel {
   private let colorService: ColorServiceProtocol
   
   private weak var delegate: LandingViewModelDelegate?
+  
+  var todos = [Todo]()
+
+      private var db = Firestore.firestore()
+
+      func getAllData() {
+          db.collection("todos").addSnapshotListener { (querySnapshot, error) in
+              guard let documents = querySnapshot?.documents else {
+                  print("No documents")
+                  return
+              }
+
+              self.todos = documents.map { (queryDocumentSnapshot) -> Todo in
+                  let data = queryDocumentSnapshot.data()
+                  let name = data["name"] as? String ?? ""
+                  return Todo(name: name)
+              }
+          }
+      }
+
+      func addNewData(name: String) {
+             do {
+                 _ = try db.collection("todos").addDocument(data: ["name": name])
+             }
+             catch {
+                 print(error.localizedDescription)
+             }
+         }
   
   var isAuthenticated: AnyPublisher<Bool, Never> { self.authenticationService.isAuthenticated }
   var username: AnyPublisher<String, Never> {

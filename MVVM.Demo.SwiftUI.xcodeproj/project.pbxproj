@@ -27,6 +27,7 @@
 		703BE4B02CC59DBE004F72FF /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 703BE4AF2CC59DBE004F72FF /* FirebaseDatabase */; };
 		703BE4B22CC59DBE004F72FF /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = 703BE4B12CC59DBE004F72FF /* FirebaseDynamicLinks */; };
 		703BE4B52CC5A0DA004F72FF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 703BE4B42CC5A0DA004F72FF /* FirebaseFirestore */; };
+		703BE4B72CC5A6AB004F72FF /* LandingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703BE4B62CC5A6A5004F72FF /* LandingModel.swift */; };
 		9647788B2774F0EE002203DE /* AnyPublisher+AwaitResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9647788A2774F0EE002203DE /* AnyPublisher+AwaitResults.swift */; };
 		964778902774F240002203DE /* AuthenticationService+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9647788F2774F240002203DE /* AuthenticationService+Tests.swift */; };
 		964778922774F64A002203DE /* Result+TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964778912774F64A002203DE /* Result+TestExtensions.swift */; };
@@ -109,6 +110,7 @@
 		6FDA2F122BE0575000A83DDB /* InfiniteCardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteCardsViewModel.swift; sourceTree = "<group>"; };
 		6FF089B82BAC9387001C454E /* Resolver+Resolved.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Resolved.swift"; sourceTree = "<group>"; };
 		703BE4982CC59D78004F72FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		703BE4B62CC5A6A5004F72FF /* LandingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingModel.swift; sourceTree = "<group>"; };
 		9647788A2774F0EE002203DE /* AnyPublisher+AwaitResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+AwaitResults.swift"; sourceTree = "<group>"; };
 		9647788F2774F240002203DE /* AuthenticationService+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationService+Tests.swift"; sourceTree = "<group>"; };
 		964778912774F64A002203DE /* Result+TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+TestExtensions.swift"; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				96B4E0D32743382B00EC88B3 /* LandingView.swift */,
+				703BE4B62CC5A6A5004F72FF /* LandingModel.swift */,
 				96B4E0D52743384F00EC88B3 /* LandingViewModel.swift */,
 			);
 			path = Landing;
@@ -702,6 +705,7 @@
 				6FDA2F132BE0575000A83DDB /* InfiniteCardsViewModel.swift in Sources */,
 				96B4E0A727432F1C00EC88B3 /* PassthroughSubject+Extensions.swift in Sources */,
 				96B4E09827432E7D00EC88B3 /* Just+Void.swift in Sources */,
+				703BE4B72CC5A6AB004F72FF /* LandingModel.swift in Sources */,
 				9665D9552745C1D60055F1F6 /* ColorWizardCoordinatorView.swift in Sources */,
 				968D344D27CD941700340C18 /* AlertService.AlertPackage+View.swift in Sources */,
 				9665D9612745C2FA0055F1F6 /* ColorWizardContentViewModel.swift in Sources */,
