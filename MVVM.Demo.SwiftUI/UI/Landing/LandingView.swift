@@ -110,15 +110,25 @@ struct LandingView: View {
   }
 
   private func firestoreList() -> some View {
-    //
-    
     return List(viewModel.todos) { todo in
-                               VStack(alignment: .leading) {
-                                   Text(todo.name ?? "")
-                               }
-                           }.onAppear() {
-                               self.viewModel.getAllData()
-                           }.navigationTitle("All Tasks")  }
+        VStack(alignment: .leading) {
+            Text(todo.name ?? "")
+        }
+        .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+            Button(role: .destructive) {
+                Task {
+                    try? await viewModel.deleteData(todoId: todo.id)
+                }
+            } label: {
+                Label("Delete", systemImage: "trash")
+            }
+        }
+    }
+    .onAppear() {
+        self.viewModel.getAllData()
+    }
+    .navigationTitle("All Tasks")
+  }
   
 }
 

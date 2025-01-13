@@ -39,7 +39,7 @@ class LandingViewModel: ViewModel {
               self.todos = documents.map { (queryDocumentSnapshot) -> Todo in
                   let data = queryDocumentSnapshot.data()
                   let name = data["name"] as? String ?? ""
-                  return Todo(name: name)
+                  return Todo(id: queryDocumentSnapshot.documentID, name: name)
               }
           }
       }
@@ -52,6 +52,8 @@ class LandingViewModel: ViewModel {
                  print(error.localizedDescription)
              }
          }
+  
+  
   
   var isAuthenticated: AnyPublisher<Bool, Never> { self.authenticationService.isAuthenticated }
   var username: AnyPublisher<String, Never> {
@@ -124,6 +126,10 @@ class LandingViewModel: ViewModel {
         self.delegate?.landingViewModelDidTapColorWizard(self)
       })
       .store(in: &self.cancelBag)
+  }
+
+  func deleteData(todoId: String) async throws {
+    try await db.collection("todos").document(todoId).delete()
   }
 }
 
